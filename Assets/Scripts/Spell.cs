@@ -18,8 +18,5 @@ public class Spell : MonoBehaviour
     Destroy(spell, 1f);
   }
 
-  private void OnTriggerEnter2D(Collider2D collision)
-  {
-    Destroy(spellObject);
-  }
+  
 }
