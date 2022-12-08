@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Entity : MonoBehaviour
+using System;
+[Serializable]
+public class Entity
 {
 
-    [Header("Geral")]
+  [Header("Geral")]
+  public string name;
+  public int level;
 
-    [Header("Health")]
-    public float currentHealth = 0f;
-    public float maxHealth = 0f;
+  [Header("Health")]
+  public int currentHealth;
+  public int maxHealth;
 
-    [Header("Mana")]
-    public float currentMana = 0f;
-    public float maxMana = 0f;
+  [Header("Mana")]
+  public int currentMana;
+  public int maxMana;
 
-    [Header("Stamina")]
-    public float currentStamina = 0f;
-    public float maxStamina = 0f;
+  [Header("Stamina")]
+  public int currentStamina;
+  public int maxStamina;
 
-    [Header("Status")]
-    public float speed = 0f;
+  [Header("Stats")]
+  public float speed = 2f;
 }

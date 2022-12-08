@@ -6,24 +6,23 @@ using UnityEngine;
 [RequireComponent(typeof(Player))]
 public class PlayerController : MonoBehaviour
 {
+  [HideInInspector] public Player player;
+  public Animator playerAnimator;
   Rigidbody2D rb2D;
-  Player player;
-  Animator playerAnimator;
-    
+
   float input_x = 0;
   float input_y = 0;
   bool isWalking = false;
   bool isDashing;
   bool canDash = true;
   Vector2 movement = Vector2.zero;
- 
+
   public float dashPower = 24f;
   public float dashTime = 0.2f;
   public float dashCooldown = 1f;
   void Start()
   {
     rb2D = GetComponent<Rigidbody2D>();
-    playerAnimator = GetComponent<Animator>();
     player = GetComponent<Player>();
   }
 
@@ -55,10 +54,10 @@ public class PlayerController : MonoBehaviour
 
     if (!isDashing)
     {
-        rb2D.MovePosition(rb2D.position + movement * player.entity.speed * Time.fixedDeltaTime);
+      rb2D.MovePosition(rb2D.position + movement * player.entity.speed * Time.fixedDeltaTime);
     }
 
-    }
+  }
 
   IEnumerator Dash()
   {

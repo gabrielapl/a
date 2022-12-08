@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Entity entity;
-    Animator enemyAnimation;
+  public Entity entity;
+  Animator enemyAnimation;
 
-    public void Start()
-    {
-        enemyAnimation = GetComponent<Animator>();
-    }
+  public void Start()
+  {
+    enemyAnimation = GetComponent<Animator>();
+  }
 
-    private void Update()
+  private void Update()
+  {
+    if (entity.currentHealth <= 0)
     {
-        if(entity.currentHealth <= 0)
-        {
-            enemyAnimation.SetTrigger("deathing");
-        }
+      enemyAnimation.SetTrigger("deathing");
     }
+  }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        entity.currentHealth -= 10f;
-    }
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    entity.currentHealth -= 10;
+  }
 
 }
