@@ -18,5 +18,11 @@ public class Spell : MonoBehaviour
     Destroy(spell, 1f);
   }
 
-  
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.name.Contains("Fire") && other.name.Contains("Spell"))
+    {
+      Destroy(other.gameObject);
+    }
+  }
 }
