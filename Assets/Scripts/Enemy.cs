@@ -90,9 +90,8 @@ public class Enemy : MonoBehaviour
 
     if (entity.currentHealth <= 0)
     {
-      enemyAnimation.SetTrigger("deathing");
-      Instantiate(experienceObject, transform.position, Quaternion.identity);
-      Destroy(this.gameObject);
+        Instantiate(experienceObject, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
   }
 
@@ -128,7 +127,6 @@ public class Enemy : MonoBehaviour
 
         if (distance <= attackDistance)
         {
-          Debug.Log("Inimigo atacou o player, Dmg: ");
           GameObject spell = Instantiate(spellObject, transform.position, Quaternion.identity);
           Vector2 direction = (target.transform.position - spell.transform.position).normalized;
           //spell.transform.position = Vector2.MoveTowards(spell.transform.position, target.transform.position, 2f);

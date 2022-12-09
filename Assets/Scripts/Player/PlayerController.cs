@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
   [HideInInspector] public Player player;
   public Animator playerAnimator;
   Rigidbody2D rb2D;
-
+    public GameObject dashing;
   float input_x = 0;
   float input_y = 0;
   bool isWalking = false;
@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
   {
     canDash = false;
     isDashing = true;
+    dashing.SetActive(true);
     float originalGravity = rb2D.gravityScale;
     rb2D.gravityScale = 0f;
 
@@ -76,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     rb2D.gravityScale = originalGravity;
     isDashing = false;
-
+    dashing.SetActive(false);
     yield return new WaitForSeconds(dashCooldown);
     canDash = true;
   }
